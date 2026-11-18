@@ -1,0 +1,55 @@
+{
+  "name": "Nightly order sync",
+  "nodes": [
+    {
+      "id": "dbfbaf78-9356-56bd-80ec-ed254e9f46fa",
+      "name": "Start nightly sync",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo/nightly-sync",
+        "options": {}
+      },
+      "webhookId": "demo-nightly-sync"
+    },
+    {
+      "id": "c1a53549-db3a-50be-8f26-03fc05e0c504",
+      "name": "Fetch upstream orders",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {
+        "url": "http://n8nops-sink:8080/upstream/orders",
+        "options": {}
+      },
+      "notes": "DEMO: the upstream is the demo sink, which always answers 503, so this job always fails."
+    }
+  ],
+  "connections": {
+    "Start nightly sync": {
+      "main": [
+        [
+          {
+            "node": "Fetch upstream orders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {}
+}
