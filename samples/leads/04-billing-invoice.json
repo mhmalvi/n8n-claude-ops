@@ -1,0 +1,18 @@
+{
+  "note": "SYNTHETIC email about an invoice.",
+  "payload": {
+    "channel": "email",
+    "from_name": "Accounts Payable",
+    "from_email": "ap@example.com",
+    "subject": "Invoice INV-2041 - PO number missing",
+    "body": "Hi, we received invoice INV-2041 but it has no PO number, so finance cannot process it. Please reissue it with PO 7781."
+  },
+  "expect": {
+    "intent_in": [
+      "billing"
+    ],
+    "branch_in": [
+      "ticket"
+    ]
+  }
+}

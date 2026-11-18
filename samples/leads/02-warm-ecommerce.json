@@ -1,0 +1,18 @@
+{
+  "note": "SYNTHETIC inbound contact-form message.",
+  "payload": {
+    "channel": "form",
+    "from_name": "Sam Ortiz",
+    "from_email": "sam@example.net",
+    "subject": "Question",
+    "body": "Read your post about n8n and Claude. We run a small online shop and might want some automation at some point next year. What kinds of things do you usually automate?"
+  },
+  "expect": {
+    "intent_in": [
+      "warm_lead"
+    ],
+    "branch_in": [
+      "warm"
+    ]
+  }
+}

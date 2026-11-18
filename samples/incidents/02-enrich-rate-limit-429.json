@@ -1,0 +1,32 @@
+{
+  "note": "SYNTHETIC. Error Trigger item: a lead-enrichment job hits a rate limit.",
+  "payload": {
+    "execution": {
+      "id": "9310",
+      "url": "https://n8n.example.com/workflow/wfEnr02/executions/9310",
+      "retryOf": null,
+      "error": {
+        "message": "The service is receiving too many requests from you (429 Too Many Requests). Retry after 60 seconds.",
+        "stack": "NodeApiError: The service is receiving too many requests from you",
+        "node": {
+          "name": "Enrich company"
+        }
+      },
+      "lastNodeExecuted": "Enrich company",
+      "mode": "trigger"
+    },
+    "workflow": {
+      "id": "wfEnr02",
+      "name": "Lead enrichment (hourly)"
+    }
+  },
+  "expect": {
+    "severity_in": [
+      "medium",
+      "low"
+    ],
+    "category_in": [
+      "rate_limit"
+    ]
+  }
+}

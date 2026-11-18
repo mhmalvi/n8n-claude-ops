@@ -1,0 +1,18 @@
+{
+  "note": "SYNTHETIC email from an existing client.",
+  "payload": {
+    "channel": "email",
+    "from_name": "Priya N.",
+    "from_email": "priya@example.com",
+    "subject": "Lead form workflow stopped sending emails",
+    "body": "Hello, since yesterday afternoon the lead form workflow you set up for us no longer sends the confirmation email. New rows still appear in the sheet. Could you take a look?"
+  },
+  "expect": {
+    "intent_in": [
+      "support"
+    ],
+    "branch_in": [
+      "ticket"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "note": "SYNTHETIC. Alert from a staging run of a Code node.",
+  "payload": {
+    "source": "ci-smoke",
+    "service": "onboarding-flow",
+    "component": "Code: map contact",
+    "environment": "staging",
+    "occurred_at": "2026-11-18T02:40:00Z",
+    "error_message": "TypeError: Cannot read properties of undefined (reading 'email')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'email')\n    at VmCodeWrapper (evalmachine.<anonymous>:4:32)"
+  },
+  "expect": {
+    "severity_in": [
+      "low",
+      "medium"
+    ],
+    "category_in": [
+      "code_bug",
+      "data_validation"
+    ]
+  }
+}

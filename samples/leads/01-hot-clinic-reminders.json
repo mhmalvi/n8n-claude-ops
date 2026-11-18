@@ -1,0 +1,18 @@
+{
+  "note": "SYNTHETIC inbound email.",
+  "payload": {
+    "channel": "email",
+    "from_name": "Dana Whitfield",
+    "from_email": "dana.whitfield@example.org",
+    "subject": "n8n automation for appointment reminders - can we talk this week?",
+    "body": "Hi, I manage operations for a three-location physiotherapy practice. We want SMS and email appointment reminders plus a no-show follow-up built in n8n, connected to our booking system's API. Budget is around USD 3,000 and we would like to start next week. Are you free for a 20-minute call on Thursday or Friday?"
+  },
+  "expect": {
+    "intent_in": [
+      "hot_lead"
+    ],
+    "branch_in": [
+      "hot"
+    ]
+  }
+}

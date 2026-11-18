@@ -1,0 +1,32 @@
+{
+  "note": "SYNTHETIC. n8n Error Trigger item: an invoice sync loses its API credential.",
+  "payload": {
+    "execution": {
+      "id": "4821",
+      "url": "https://n8n.example.com/workflow/wfInv01/executions/4821",
+      "retryOf": null,
+      "error": {
+        "message": "Authorization failed - please check your credentials (401 Unauthorized: invalid api key)",
+        "stack": "NodeApiError: Authorization failed - please check your credentials\n    at ExecuteContext.requestWithAuthentication",
+        "node": {
+          "name": "Create invoice"
+        }
+      },
+      "lastNodeExecuted": "Create invoice",
+      "mode": "trigger"
+    },
+    "workflow": {
+      "id": "wfInv01",
+      "name": "Invoice sync (prod)"
+    }
+  },
+  "expect": {
+    "severity_in": [
+      "critical",
+      "high"
+    ],
+    "category_in": [
+      "credentials"
+    ]
+  }
+}

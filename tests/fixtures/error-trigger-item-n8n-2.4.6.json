@@ -1,0 +1,60 @@
+{
+  "note": "Real Error Trigger item captured from the throwaway n8n 2.4.6 demo run (2026-11-18), context block removed.",
+  "item": {
+    "execution": {
+      "id": "1",
+      "url": "http://localhost:5711/workflow/sBikin3f5CYDui7I/executions/1",
+      "error": {
+        "level": "warning",
+        "tags": {},
+        "description": "Service Unavailable",
+        "timestamp": 1794963483323,
+        "functionality": "regular",
+        "name": "NodeApiError",
+        "node": {
+          "id": "c1a53549-db3a-50be-8f26-03fc05e0c504",
+          "name": "Fetch upstream orders",
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.2,
+          "position": [
+            260,
+            0
+          ],
+          "parameters": {
+            "curlImport": "",
+            "method": "GET",
+            "url": "http://n8nops-sink:8080/upstream/orders",
+            "authentication": "none",
+            "provideSslCertificates": false,
+            "sendQuery": false,
+            "sendHeaders": false,
+            "sendBody": false,
+            "options": {},
+            "infoMessage": ""
+          }
+        },
+        "messages": [
+          "503 - \"{\\\"error\\\": \\\"Service Unavailable\\\", \\\"detail\\\": \\\"orders backend is down (demo)\\\"}\""
+        ],
+        "httpCode": "503",
+        "message": "Service unavailable - try again later or consider setting this node to retry automatically (in the node settings)",
+        "stack": "NodeApiError: Service unavailable - try again later or consider setting this node to retry automatically (in the node settings)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@<email>@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:859:16)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@<email>@<email>/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1045:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@<email>@<email>/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1226:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@<email>@<email>/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1662:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@<email>@<email>/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2297:11"
+      },
+      "lastNodeExecuted": "Fetch upstream orders",
+      "mode": "webhook",
+      "executionContext": {
+        "version": 1,
+        "establishedAt": 1794963482979,
+        "source": "webhook",
+        "triggerNode": {
+          "name": "Start nightly sync (demo)",
+          "type": "n8n-nodes-base.webhook"
+        }
+      }
+    },
+    "workflow": {
+      "id": "sBikin3f5CYDui7I",
+      "name": "Nightly order sync"
+    }
+  }
+}

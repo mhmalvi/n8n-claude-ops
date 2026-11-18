@@ -1,0 +1,35 @@
+{
+  "note": "SYNTHETIC. Error Trigger item: a nightly report times out.",
+  "payload": {
+    "execution": {
+      "id": "7702",
+      "url": "https://n8n.example.com/workflow/wfBak05/executions/7702",
+      "retryOf": null,
+      "error": {
+        "message": "connect ETIMEDOUT - The connection to the server timed out after 300000 ms",
+        "stack": "NodeApiError: The connection timed out\n    at HttpRequestV3.execute",
+        "node": {
+          "name": "Fetch backup status"
+        }
+      },
+      "lastNodeExecuted": "Fetch backup status",
+      "mode": "trigger"
+    },
+    "workflow": {
+      "id": "wfBak05",
+      "name": "Nightly backup report"
+    }
+  },
+  "expect": {
+    "severity_in": [
+      "medium",
+      "high",
+      "low"
+    ],
+    "category_in": [
+      "timeout",
+      "infrastructure",
+      "external_api"
+    ]
+  }
+}

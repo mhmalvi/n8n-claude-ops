@@ -1,0 +1,21 @@
+{
+  "note": "SYNTHETIC. Generic uptime alert POSTed to the incident webhook.",
+  "payload": {
+    "source": "uptime-monitor",
+    "service": "checkout-api",
+    "component": "POST /v1/checkout",
+    "environment": "production",
+    "http_status": 503,
+    "occurred_at": "2026-11-18T01:12:00Z",
+    "error_message": "Checkout endpoint returned 503 Service Unavailable on 5 consecutive checks over 5 minutes",
+    "url": "https://status.example.com/incidents/abc"
+  },
+  "expect": {
+    "severity_in": [
+      "critical"
+    ],
+    "branch_in": [
+      "critical"
+    ]
+  }
+}

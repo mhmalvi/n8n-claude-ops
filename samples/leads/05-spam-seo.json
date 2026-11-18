@@ -1,0 +1,18 @@
+{
+  "note": "SYNTHETIC unsolicited offer.",
+  "payload": {
+    "channel": "form",
+    "from_name": "Rank Booster Team",
+    "from_email": "offers@example.org",
+    "subject": "Guaranteed page 1 Google ranking!!!",
+    "body": "Dear website owner, we sell 5000 high DA backlinks for only $49. Guaranteed page one results in 7 days. Reply YES to start. Click here to claim the discount now."
+  },
+  "expect": {
+    "intent_in": [
+      "spam"
+    ],
+    "branch_in": [
+      "spam"
+    ]
+  }
+}
