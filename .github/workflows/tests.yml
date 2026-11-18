@@ -1,0 +1,26 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - name: Workflow files are up to date with the builder
+        run: python -m builder.build_workflows && git diff --exit-code workflows demo
+      - name: Offline tests (no network, no API key; Node runs the Code-node parity tests)
+        run: pytest -q

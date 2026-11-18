@@ -1,0 +1,4 @@
+anthropic==2.10.0
+pytest==9.2.0
+requests==2.34.2
+ruff==0.17.5
