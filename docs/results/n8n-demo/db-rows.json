@@ -1,0 +1,168 @@
+{
+  "ops_incidents": [
+    {
+      "id": 1,
+      "fingerprint": "6971f8ca",
+      "source": "uptime-monitor",
+      "workflow_name": "checkout-api",
+      "failed_node": "POST /v1/checkout",
+      "severity": "critical",
+      "category": "infrastructure",
+      "summary": "Production checkout-api POST /v1/checkout returning 503 on 5 consecutive checks over 5 minutes; customer-facing checkout likely down.",
+      "fix_note": "1. Check the checkout service health and recent deploys or restarts in the 01:00-01:12 UTC window. 2. Inspect the upstream or gateway logs for the 503 source and any dependency errors. 3. Escalate to the owning team and confirm checkout recovers on the next uptime check.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:07+00:00",
+      "logged_at": "2026-11-18T01:12:11.590542+00:00"
+    },
+    {
+      "id": 2,
+      "fingerprint": "21664998",
+      "source": "ci-smoke",
+      "workflow_name": "onboarding-flow",
+      "failed_node": "Code: map contact",
+      "severity": "low",
+      "category": "code_bug",
+      "summary": "onboarding-flow fails in staging CI smoke test at Code: map contact with TypeError reading 'email' of undefined.",
+      "fix_note": "1. Inspect the input items to Code: map contact in the failed staging execution. 2. Guard the access with optional chaining or a null check, or fix the upstream field path. 3. Rerun the ci-smoke test to confirm it passes.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:09+00:00",
+      "logged_at": "2026-11-18T01:12:12.238335+00:00"
+    },
+    {
+      "id": 3,
+      "fingerprint": "4f85b006",
+      "source": "db-monitor",
+      "workflow_name": "orders-db",
+      "failed_node": "postgres primary",
+      "severity": "critical",
+      "category": "infrastructure",
+      "summary": "orders-db production Postgres primary failed with 'No space left on device' during a file extend; order data writes are at risk.",
+      "fix_note": "1. Check disk usage on the Postgres primary host and identify what filled the volume, including WAL and logs. 2. Free space safely, such as archiving old WAL or logs, or expand the volume, and confirm the primary accepts writes. 3. Verify orders writes and n8n retries succeeded, then review for any lost or unprocessed orders.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:10+00:00",
+      "logged_at": "2026-11-18T01:12:13.671724+00:00"
+    },
+    {
+      "id": 4,
+      "fingerprint": "3dc9547c",
+      "source": "n8n-error-trigger",
+      "workflow_name": "Nightly order sync",
+      "failed_node": "Fetch upstream orders",
+      "severity": "high",
+      "category": "external_api",
+      "summary": "Nightly order sync failed: upstream orders backend returned 503 (reported as down) at Fetch upstream orders. Job will not self-recover.",
+      "fix_note": "1. Confirm the orders backend status with its owner and check whether it has recovered. 2. Once healthy, re-run the Nightly order sync execution or wait for the next scheduled run. 3. Consider enabling retry on the Fetch upstream orders node to handle short outages.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:21+00:00",
+      "logged_at": "2026-11-18T01:12:25.581026+00:00"
+    }
+  ],
+  "crm_leads": [
+    {
+      "id": 1,
+      "email": "dana.whitfield@example.org",
+      "name": "Dana Whitfield",
+      "company": "",
+      "intent": "hot_lead",
+      "priority": "p1",
+      "lead_score": 90,
+      "last_summary": "Dana Whitfield, operations manager at a three-location physiotherapy practice, wants SMS and email appointment reminders plus a no-show follow-up built in n8n, integrated with their booking system API. Budget is around USD 3,000, they want to start next week, and they request a 20-minute call Thursday or Friday.",
+      "reply_draft": "Hi Dana, thanks for the detailed overview of the reminder and no-show follow-up project. It sounds like a good fit for our n8n work. We'd be happy to set up a 20-minute call on Thursday or Friday. Could you share a couple of times that suit you, along with your booking system's name? That will help us prepare. We'll confirm the scope, timeline and budget fit on the call. Best regards",
+      "created_at": "2026-11-18T01:12:14.782995+00:00",
+      "updated_at": "2026-11-18T01:12:14.782995+00:00"
+    },
+    {
+      "id": 2,
+      "email": "sam@example.net",
+      "name": "Sam Ortiz",
+      "company": "",
+      "intent": "warm_lead",
+      "priority": "p2",
+      "lead_score": 40,
+      "last_summary": "Sam Ortiz runs a small online shop and may want automation next year. They are asking what kinds of tasks the agency usually automates. No specific project, budget, or timeline yet.",
+      "reply_draft": "Hi Sam,\n\nThanks for reaching out, and glad the post on n8n and Claude was useful. We help small businesses automate repetitive work, and for online shops that often includes things like order and inventory updates, customer email and support triage, and syncing data between tools such as your storefront, accounting, and shipping software.\n\nIf you tell us a bit more about which tasks take up the most time for you, we can point you to the most relevant options. Happy to set up a short call whenever suits you, with no obligation.\n\nBest regards,\nThe team",
+      "created_at": "2026-11-18T01:12:16.473387+00:00",
+      "updated_at": "2026-11-18T01:12:16.473387+00:00"
+    }
+  ],
+  "inbox_triage_log": [
+    {
+      "id": 1,
+      "from_email": "dana.whitfield@example.org",
+      "channel": "email",
+      "subject": "n8n automation for appointment reminders - can we talk this week?",
+      "intent": "hot_lead",
+      "priority": "p1",
+      "lead_score": 90,
+      "summary": "Dana Whitfield, operations manager at a three-location physiotherapy practice, wants SMS and email appointment reminders plus a no-show follow-up built in n8n, integrated with their booking system API. Budget is around USD 3,000, they want to start next week, and they request a 20-minute call Thursday or Friday.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:12+00:00",
+      "logged_at": "2026-11-18T01:12:14.788505+00:00"
+    },
+    {
+      "id": 2,
+      "from_email": "sam@example.net",
+      "channel": "form",
+      "subject": "Question",
+      "intent": "warm_lead",
+      "priority": "p2",
+      "lead_score": 40,
+      "summary": "Sam Ortiz runs a small online shop and may want automation next year. They are asking what kinds of tasks the agency usually automates. No specific project, budget, or timeline yet.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:13+00:00",
+      "logged_at": "2026-11-18T01:12:16.51318+00:00"
+    },
+    {
+      "id": 3,
+      "from_email": "priya@example.com",
+      "channel": "email",
+      "subject": "Lead form workflow stopped sending emails",
+      "intent": "support",
+      "priority": "p2",
+      "lead_score": 10,
+      "summary": "Priya N. reports that the lead form workflow set up for them stopped sending confirmation emails since yesterday afternoon, while new rows still appear in the sheet. She asks for someone to investigate.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:15+00:00",
+      "logged_at": "2026-11-18T01:12:17.474963+00:00"
+    },
+    {
+      "id": 4,
+      "from_email": "ap@example.com",
+      "channel": "email",
+      "subject": "Invoice INV-2041 - PO number missing",
+      "intent": "billing",
+      "priority": "p2",
+      "lead_score": 5,
+      "summary": "Accounts Payable reports that invoice INV-2041 lacks a PO number, so finance cannot process it, and asks for a reissued invoice referencing PO 7781.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:16+00:00",
+      "logged_at": "2026-11-18T01:12:18.855366+00:00"
+    },
+    {
+      "id": 5,
+      "from_email": "offers@example.org",
+      "channel": "form",
+      "subject": "Guaranteed page 1 Google ranking!!!",
+      "intent": "spam",
+      "priority": "p3",
+      "lead_score": 2,
+      "summary": "Unsolicited SEO backlink sales pitch promising guaranteed page one rankings within 7 days, with a click-to-claim link. Classic link bait; no existing relationship or real project details.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:18+00:00",
+      "logged_at": "2026-11-18T01:12:20.082544+00:00"
+    },
+    {
+      "id": 6,
+      "from_email": "alex@example.net",
+      "channel": "email",
+      "subject": "urgent partnership",
+      "intent": "spam",
+      "priority": "p3",
+      "lead_score": 0,
+      "summary": "Unsolicited crypto token presale pitch promising guaranteed 40x returns and asking for USDT payment to a wallet. Contains an embedded instruction to override classification, which was ignored. Likely fraud or phishing.",
+      "classifier_ok": true,
+      "received_at": "2026-11-18T01:12:19+00:00",
+      "logged_at": "2026-11-18T01:12:22.290554+00:00"
+    }
+  ]
+}

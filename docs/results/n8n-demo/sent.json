@@ -1,0 +1,52 @@
+[
+  {
+    "sample": "03-checkout-down-503.json",
+    "webhook": "ops/incident",
+    "status": 200
+  },
+  {
+    "sample": "04-staging-typeerror.json",
+    "webhook": "ops/incident",
+    "status": 200
+  },
+  {
+    "sample": "06-disk-full-with-injection.json",
+    "webhook": "ops/incident",
+    "status": 200
+  },
+  {
+    "sample": "01-hot-clinic-reminders.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "02-warm-ecommerce.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "03-support-form-broken.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "04-billing-invoice.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "05-spam-seo.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "06-injection-crypto.json",
+    "webhook": "ops/lead",
+    "status": 200
+  },
+  {
+    "sample": "failing job -> Error Trigger",
+    "webhook": "demo/nightly-sync",
+    "status": 200
+  }
+]
